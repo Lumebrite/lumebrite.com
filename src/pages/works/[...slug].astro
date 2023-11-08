@@ -1,0 +1,114 @@
+---
+// Content Collections
+import { getCollection } from 'astro:content';
+import { Image } from 'astro:assets';
+import Layout from '@layouts/Layout.astro';
+
+export async function getStaticPaths() {
+	const workEntries = await getCollection('works');
+	return workEntries.map((entry) => ({
+		params: { slug: entry.slug },
+		props: { entry },
+	}));
+}
+
+const { entry } = Astro.props;
+
+const { Content } = await entry.render();
+---
+
+<Layout title="Welcome to Astro.">
+	<div class="absolute left-0 top-0 h-screen w-full">
+		<div class="relative h-screen w-full">
+			<Image src={entry.data.thumbnail} alt="" width="1600" height="800" class="h-full w-full object-cover opacity-40" />
+			<div class="absolute left-0 top-0 h-full w-full bg-gradient-to-b from-[#1F1D20]/0 to-[#1F1D20]"></div>
+		</div>
+	</div>
+
+	<div class="relative z-20">
+		<!-- Hero -->
+		<header id="header" class="mb-[200px]">
+			<div class="relative z-20 mx-auto max-w-[1440px] px-6 sm:px-10 2xl:max-w-[1680px]">
+				<div id="hero" class="pt-[110px]">
+					<h1 class="mb-7 max-w-3xl text-[22px] leading-[1.35] tracking-[-0.015em] text-white" set:html={entry.data.title} />
+					<div class="max-w-[270px] text-sm text-white/60">
+						Published <span class="text-white">{entry.data.publishedDate.getFullYear()}</span><br />
+						 Client <span class="text-white">{entry.data.client}</span>
+					</div>
+				</div>
+			</div>
+		</header>
+
+		<div class="relative z-30">
+			<main class="mx-auto max-w-[1440px] px-4 sm:px-10 2xl:max-w-[1680px]">
+				<section id="product-design-expertise">
+					<article class="section-card pb-0 pt-8 sm:pt-12">
+						<div class="markdown max-w-4xl px-6 sm:px-9 xl:px-12">
+							<Content />
+						</div>
+						<div class="mt-24 grid grid-cols-2 gap-2 text-white lg:mt-32">
+							{
+								entry.data.images.map((image) => (
+									<>
+										<Image src={image} alt="" width="1600" class="w-full">
+									</>
+								))
+							}
+							{
+								entry.data.images.map((image) => (
+									<>
+										<Image src={image} alt="" width="1600" class="w-full">
+									</>
+								))
+							}
+						</div>
+					</article>
+				</section>
+			</main>
+		</div>
+	</div>
+
+	<script>
+		import { gsap } from 'gsap';
+		import { ScrollTrigger } from 'gsap/ScrollTrigger';
+		gsap.registerPlugin(ScrollTrigger);
+
+		// gsap.to('#home-splash', {
+		// 	scrollTrigger: {
+		// 		trigger: '#home-splash', // start the animation when "#home-splash" enters the viewport (once)
+
+		// 		start: 'top center',
+		// 		scrub: true,
+		// 	},
+		// 	scale: 0.5,
+		// 	translateY: 300,
+		// 	opacity: 0,
+		// });
+
+		gsap.to('#hero', {
+			scrollTrigger: {
+				trigger: '#header', // start the animation when trigger enters the viewport (once)
+				start: 'top top',
+				scrub: true,
+				pin: true,
+				pinSpacing: false,
+			},
+			// scale: 0.9,
+			// translateY: 300,
+			opacity: 0,
+			blurElement: 20,
+		});
+
+		gsap.to('#splash', {
+			scrollTrigger: {
+				trigger: '#splash', // start the animation when trigger enters the viewport (once)
+				start: 'top 15%',
+				scrub: true,
+				pin: true,
+			},
+			scale: 0.9,
+			// translateY: 400,
+			opacity: 0,
+		});
+	</script>
+</Layout>

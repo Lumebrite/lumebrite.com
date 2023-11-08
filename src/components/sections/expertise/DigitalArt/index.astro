@@ -1,0 +1,171 @@
+---
+import { Image } from 'astro:assets';
+import { Icon } from 'astro-icon';
+
+// Images - Abstract backgrounds
+import ImgAbstract01 from './assets/backgrounds/sean-sinclair-k0JNJRbrJAs-unsplash.jpg';
+import ImgAbstract02 from './assets/backgrounds/sean-sinclair-0Y6BaIZeh0g-unsplash.jpg';
+
+// Images - Service features
+import ImgKeyboard from './assets/service-features/keyboard.svg';
+import ImgPurchaseCard from './assets/service-features/purchase-card.svg';
+import ImgDesignSystem from './assets/service-features/design-system.svg';
+import ImgIA from './assets/service-features/IA.svg';
+import ImgPixelPerfect from './assets/service-features/pixel-perfect.svg';
+import ImgTetris from './assets/service-features/tetris.svg';
+import ImgTypography from './assets/service-features/typography.svg';
+import ImgHopmedic01 from './assets/service-features/hopmedic/hopmedic-01.jpg';
+import ImgHopmedic02 from './assets/service-features/hopmedic/hopmedic-02.jpg';
+import ImgHopmedic03 from './assets/service-features/hopmedic/hopmedic-03.jpg';
+import ImgSampleSlide01 from './assets/sample-slide-01.jpg';
+import ImgSampleSlide02 from './assets/sample-slide-02.jpg';
+import ImgSampleSlide03 from './assets/sample-slide-03.jpg';
+import ImgSampleSlide04 from './assets/sample-slide-04.jpg';
+import ImgSampleSlide05 from './assets/sample-slide-05.jpg';
+
+import ImgSodo01 from './assets/service-features/sodo/sodo-01.jpg';
+import ImgSodo02 from './assets/service-features/sodo/sodo-02.jpg';
+import ImgSodo03 from './assets/service-features/sodo/sodo-03.jpg';
+import ImgSodo04 from './assets/service-features/sodo/sodo-04.jpg';
+import ImgSodo05 from './assets/service-features/sodo/sodo-05.jpg';
+import ImgSodo06 from './assets/service-features/sodo/sodo-06.jpg';
+import ImgSodo07 from './assets/service-features/sodo/sodo-07.jpg';
+
+import ImgSittingMonkeys from './assets/service-features/sitting-monkeys.jpg';
+import ImgTools from './assets/service-features/tools.png';
+
+import CardTestimonials from './components/CardTestimonials.astro';
+import CardContributions from './components/CardContributions.astro';
+import CardWatercooler from './components/CardWatercooler.astro';
+import CardOpenSource from './components/CardOpenSource.astro';
+import CardCurrentlyReading from './components/CardCurrentlyReading.astro';
+import CardPhotography from './components/CardPhotography.astro';
+import CardGHBadges from './components/CardGHBadges.astro';
+import CardAwards from './components/CardAwards.astro';
+
+// Carousels
+import HomeShowcaseCarousel from './components/HomeShowcaseCarousel.astro';
+import TechnologyCarousel from './components/TechnologyCarousel.astro';
+import StorytellingCarousel from './components/StorytellingCarousel.astro';
+import ArtStyleCarousel from './components/ArtStyleCarousel.astro';
+---
+
+<section id="product-design-expertise" class="pb-7">
+	<article class="section-card pb-0 pt-8 sm:py-12">
+		<div class="">
+			<div class="px-6 sm:px-9 xl:px-12">
+				<h3 class="mb-6 max-w-xl text-2xl font-light tracking-[-0.015em] text-white sm:text-3xl">
+					Transparent, gaudited, <br /><span class="text-red-400">& open source</span>
+				</h3>
+				<p class="max-w-2xl text-base text-white/70 sm:text-lg">
+					Fingerprint provides a complete view of your users across web and mobile. The visitor identification API identifies up to 99.5% of returning visitors, while Smart Signals
+					provide actionable real-time intelligence about visitor intent.
+				</p>
+			</div>
+
+			<div class="mt-24 grid grid-cols-1 gap-6 px-0 text-black lg:mt-32 lg:grid-cols-2 lg:px-9 xl:px-12">
+				<div class="relative overflow-hidden bg-black/[0.15] lg:rounded-lg">
+					<div class="px-6 pt-6 sm:px-9">
+						<h4 class="mb-3 font-semibold leading-none text-white">Hand-coded Prototypes</h4>
+						<p class="text-sm text-slate-200">Complete any action in seconds with the global command menu.</p>
+					</div>
+					<div class="flex aspect-[6/4] items-center justify-center sm:aspect-[12/7]">
+						<Image src={ImgSittingMonkeys} alt="" class="h-full object-cover" />
+					</div>
+				</div>
+				<div class="relative overflow-hidden bg-black/[0.15] lg:rounded-lg">
+					<div class="px-6 pt-6 sm:px-9">
+						<h4 class="mb-3 font-semibold leading-none text-white">Hand-coded Prototypes</h4>
+						<p class="text-sm text-slate-200">Complete any action in seconds with the global command menu.</p>
+					</div>
+					<div class="flex aspect-[6/4] items-center justify-center sm:aspect-[12/7]">
+						<Image src={ImgTools} alt="" width="640" />
+					</div>
+				</div>
+				<div class="relative overflow-hidden bg-black/[0.15] lg:rounded-lg">
+					<div class="px-6 pt-6 sm:px-9">
+						<h4 class="mb-3 font-semibold leading-none text-white">Hand-coded Prototypes</h4>
+						<p class="text-sm text-slate-200">Complete any action in seconds with the global command menu.</p>
+					</div>
+					<div class="flex aspect-[6/4] flex-col items-center justify-center gap-2 sm:aspect-[12/7]">
+						<ArtStyleCarousel />
+					</div>
+				</div>
+				<div class="relative overflow-hidden bg-black/[0.15] lg:rounded-lg">
+					<div class="px-6 pt-6 sm:px-9">
+						<h4 class="mb-3 font-semibold leading-none text-white">Hand-coded Prototypes</h4>
+						<p class="text-sm text-slate-200">Complete any action in seconds with the global command menu.</p>
+					</div>
+					<div class="flex aspect-[6/4] items-center sm:aspect-[12/7]">
+						<!-- Slider main container -->
+						<div class="swiper swiper-services-detailed-artwork mt-10 w-full">
+							<!-- Additional required wrapper -->
+							<div class="swiper-wrapper">
+								<!-- Slides -->
+								<div class="swiper-slide w-[280px] lg:w-[400px]">
+									<div class="shadow-2xl">
+										<Image src={ImgSodo01} width={600} alt="" class="" />
+									</div>
+								</div>
+								<div class="swiper-slide w-[280px] lg:w-[400px]">
+									<div class="shadow-2xl">
+										<Image src={ImgSodo02} width={600} alt="" class="" />
+									</div>
+								</div>
+								<div class="swiper-slide w-[280px] lg:w-[400px]">
+									<div class="shadow-2xl">
+										<Image src={ImgSodo03} width={600} alt="" class="" />
+									</div>
+								</div>
+								<div class="swiper-slide w-[280px] lg:w-[400px]">
+									<div class="shadow-2xl">
+										<Image src={ImgSodo04} width={600} alt="" class="" />
+									</div>
+								</div>
+								<div class="swiper-slide w-[280px] lg:w-[400px]">
+									<div class="shadow-2xl">
+										<Image src={ImgSodo05} width={600} alt="" class="" />
+									</div>
+								</div>
+								<div class="swiper-slide w-[280px] lg:w-[400px]">
+									<div class="shadow-2xl">
+										<Image src={ImgSodo06} width={600} alt="" class="" />
+									</div>
+								</div>
+								<div class="swiper-slide w-[280px] lg:w-[400px]">
+									<div class="shadow-2xl">
+										<Image src={ImgSodo07} width={600} alt="" class="" />
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</article>
+</section>
+
+<script>
+	import { gsap } from 'gsap';
+	import { ScrollTrigger } from 'gsap/ScrollTrigger';
+	gsap.registerPlugin(ScrollTrigger);
+
+	ScrollTrigger.create({
+		trigger: '#product-design-expertise',
+		start: 'top center',
+		end: 'bottom center',
+		onEnter: () => {
+			document.querySelector('#product-design-expertise .section-card').classList.add('is-active');
+		},
+		onLeave: () => {
+			document.querySelector('#product-design-expertise .section-card').classList.remove('is-active');
+		},
+		onEnterBack: () => {
+			document.querySelector('#product-design-expertise .section-card').classList.add('is-active');
+		},
+		onLeaveBack: () => {
+			document.querySelector('#product-design-expertise .section-card').classList.remove('is-active');
+		},
+	});
+</script>

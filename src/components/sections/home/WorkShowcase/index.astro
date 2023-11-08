@@ -1,0 +1,56 @@
+---
+import { Image } from 'astro:assets';
+import ImgThumbnail from '@assets/sample-slide-01.jpg';
+---
+
+<section class="section-card">
+	<div class="l:pr-12 relative z-20 rounded-[13px] bg-[#1f1d20]/80">
+		<div class="px-6 py-8 sm:px-9 sm:py-12 xl:col-span-7 xl:px-12">
+			<h3 class="mb-6 max-w-xl text-2xl font-light tracking-[-0.015em] text-white sm:text-3xl">
+				Embracing the full <br /><span class="text-red-400">digital product spectrum</span>
+			</h3>
+			<p class="max-w-2xl text-base text-white/70 sm:text-lg">
+				Jin offers a rare blend of design finesse and developmental prowess. With a keen eye for aesthetics matched by a skillful hand in prototyping, he transforms visionary
+				concepts into tangible user experiences.
+			</p>
+
+			<a href="/works" class="mt-12 inline-flex max-w-[430px] items-center overflow-hidden rounded-lg bg-white/10">
+				<div class="aspect-[6/4] w-[160px] flex-none bg-white">
+					<Image src={ImgThumbnail} alt="Showreel" class="h-full w-full object-cover" />
+				</div>
+				<div class="px-6">
+					<div class="mb-2 flex items-center gap-2 text-[13px] font-medium text-white">
+						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-3.5 w-3.5">
+							<path
+								d="M3.25 4A2.25 2.25 0 001 6.25v7.5A2.25 2.25 0 003.25 16h7.5A2.25 2.25 0 0013 13.75v-7.5A2.25 2.25 0 0010.75 4h-7.5zM19 4.75a.75.75 0 00-1.28-.53l-3 3a.75.75 0 00-.22.53v4.5c0 .199.079.39.22.53l3 3a.75.75 0 001.28-.53V4.75z"
+							></path>
+						</svg>
+
+						 2024 Showcase Reel
+						<span class="text-[11px] text-white/40">(1:51)</span>
+					</div>
+					<div class="text-xs text-white/60">A visual symphony of enduring design excellence and digital mastery.</div>
+				</div>
+			</a>
+
+			<ul class="mt-24 grid max-w-[1000px] grid-cols-4 gap-[6px] lg:mt-32">
+				<li class="rounded-lg bg-black/20 px-4 py-7 text-center shadow-lg">
+					<div class="mb-3 text-[15px] font-medium leading-none tracking-tighter text-white/80">Best Design Award</div>
+					<p class="text-xs leading-[1.5] text-white/60">Recipient from the Designers <br />Institute of New Zealand</p>
+				</li>
+				<li class="rounded-lg bg-black/20 px-4 py-7 text-center shadow-lg">
+					<div class="mb-3 text-[15px] font-medium leading-none tracking-tighter text-white/80">150+ Open Source Stars</div>
+					<p class="text-xs leading-[1.5] text-white/60">Recognized <br />contributions on GitHub</p>
+				</li>
+				<li class="rounded-lg bg-black/20 px-4 py-7 text-center shadow-lg">
+					<div class="mb-3 text-[15px] font-medium leading-none tracking-tighter text-white/80">75+ Projects Published</div>
+					<p class="text-xs leading-[1.5] text-white/60">Spanning multiple <br />industries and media</p>
+				</li>
+				<li class="rounded-lg bg-black/20 px-4 py-7 text-center shadow-lg">
+					<div class="mb-3 text-[15px] font-medium leading-none tracking-tighter text-white/80">Global Client Base</div>
+					<p class="text-xs leading-[1.5] text-white/60">Vast array of clients across <br />continents, cultures, and markets.</p>
+				</li>
+			</ul>
+		</div>
+	</div>
+</section>

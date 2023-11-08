@@ -1,0 +1,248 @@
+---
+import { Image } from 'astro:assets';
+import { Icon } from 'astro-icon';
+
+// Images - Abstract backgrounds
+import ImgAbstract01 from './assets/backgrounds/sean-sinclair-k0JNJRbrJAs-unsplash.jpg';
+import ImgAbstract02 from './assets/backgrounds/sean-sinclair-0Y6BaIZeh0g-unsplash.jpg';
+
+// Images - Service features
+import ImgKeyboard from './assets/service-features/keyboard.svg';
+import ImgPurchaseCard from './assets/service-features/purchase-card.svg';
+import ImgDesignSystem from './assets/service-features/design-system.svg';
+import ImgIA from './assets/service-features/IA.svg';
+import ImgPixelPerfect from './assets/service-features/pixel-perfect.svg';
+import ImgTetris from './assets/service-features/tetris.svg';
+import ImgTypography from './assets/service-features/typography.svg';
+import ImgHopmedic01 from './assets/service-features/hopmedic/hopmedic-01.jpg';
+import ImgHopmedic02 from './assets/service-features/hopmedic/hopmedic-02.jpg';
+import ImgHopmedic03 from './assets/service-features/hopmedic/hopmedic-03.jpg';
+import ImgSampleSlide01 from './assets/sample-slide-01.jpg';
+import ImgSampleSlide02 from './assets/sample-slide-02.jpg';
+import ImgSampleSlide03 from './assets/sample-slide-03.jpg';
+import ImgSampleSlide04 from './assets/sample-slide-04.jpg';
+import ImgSampleSlide05 from './assets/sample-slide-05.jpg';
+
+import ImgSodo01 from './assets/service-features/sodo/sodo-01.jpg';
+import ImgSodo02 from './assets/service-features/sodo/sodo-02.jpg';
+import ImgSodo03 from './assets/service-features/sodo/sodo-03.jpg';
+import ImgSodo04 from './assets/service-features/sodo/sodo-04.jpg';
+import ImgSodo05 from './assets/service-features/sodo/sodo-05.jpg';
+import ImgSodo06 from './assets/service-features/sodo/sodo-06.jpg';
+import ImgSodo07 from './assets/service-features/sodo/sodo-07.jpg';
+
+import ImgSittingMonkeys from './assets/service-features/sitting-monkeys.jpg';
+import ImgTools from './assets/service-features/tools.png';
+
+import CardTestimonials from './components/CardTestimonials.astro';
+import CardContributions from './components/CardContributions.astro';
+import CardWatercooler from './components/CardWatercooler.astro';
+import CardOpenSource from './components/CardOpenSource.astro';
+import CardCurrentlyReading from './components/CardCurrentlyReading.astro';
+import CardPhotography from './components/CardPhotography.astro';
+import CardGHBadges from './components/CardGHBadges.astro';
+import CardAwards from './components/CardAwards.astro';
+
+// Carousels
+import HomeShowcaseCarousel from './components/HomeShowcaseCarousel.astro';
+import TechnologyCarousel from './components/TechnologyCarousel.astro';
+import StorytellingCarousel from './components/StorytellingCarousel.astro';
+import ArtStyleCarousel from './components/ArtStyleCarousel.astro';
+---
+
+<section id="product-design-expertise" class="pb-7">
+	<article class="section-card pb-0 pt-8 sm:py-12">
+		<div class="">
+			<div class="px-6 sm:px-9 xl:px-12">
+				<h3 class="mb-6 max-w-xl text-2xl font-light tracking-[-0.015em] text-white sm:text-3xl">
+					Transparent, gaudited, <br /><span class="text-red-400">& open source</span>
+				</h3>
+				<p class="max-w-2xl text-base text-white/70 sm:text-lg">
+					Fingerprint provides a complete view of your users across web and mobile. The visitor identification API identifies up to 99.5% of returning visitors, while Smart Signals
+					provide actionable real-time intelligence about visitor intent.
+				</p>
+			</div>
+
+			<div class="mt-24 grid grid-cols-1 gap-6 px-0 text-black lg:mt-32 lg:grid-cols-2 lg:px-9 xl:px-12">
+				<div class="relative overflow-hidden bg-black/[0.15] lg:rounded-lg">
+					<div class="px-6 pt-6 sm:px-9">
+						<h4 class="mb-3 font-semibold leading-none text-white">Hand-coded Prototypes</h4>
+						<p class="text-sm text-slate-200">Complete any action in seconds with the global command menu.</p>
+					</div>
+					<div class="flex aspect-[6/4] items-center justify-center sm:aspect-[12/7]">
+						<Image src={ImgKeyboard} alt="" class="my-class" />
+					</div>
+				</div>
+				<div class="relative overflow-hidden bg-black/[0.15] lg:rounded-lg">
+					<div class="px-6 pt-6 sm:px-9">
+						<h4 class="mb-3 font-semibold leading-none text-white">Hand-coded Prototypes</h4>
+						<p class="text-sm text-slate-200">Complete any action in seconds with the global command menu.</p>
+					</div>
+					<div class="flex aspect-[6/4] items-center sm:aspect-[12/7]">
+						<!-- Slider main container -->
+						<div class="swiper swiper-services-os mt-10 w-full">
+							<!-- Additional required wrapper -->
+							<div class="swiper-wrapper">
+								<!-- Slides -->
+								<div class="swiper-slide">
+									<div
+										class="relative h-[210px] overflow-hidden rounded-[14px] bg-white/20 after:absolute after:inset-0 after:z-30 after:block after:h-full after:w-full after:rounded-[14px] after:border after:border-white/20 after:content-['']"
+									>
+										<Image src={ImgAbstract01} width={480} alt="" class="absolute left-0 top-0 z-10 h-full w-full object-cover" />
+										<div class="relative z-30">
+											<div class="pl-8 pt-8">
+												<svg class="text-white" xmlns="http://www.w3.org/2000/svg" width="81" height="24" fill="currentColor" viewBox="0 0 81 24"
+													><path
+														d="M68.766 7.58h3.058l2.8 7.44L77.5 7.58h2.794L75.586 19.77c-.396 1.056-.939 1.907-1.628 2.552-.69.645-1.635.968-2.838.968a5.25 5.25 0 0 1-1.584-.242V20.67c.396.147.807.22 1.232.22.41 0 .748-.066 1.012-.198.279-.132.52-.352.726-.66.22-.293.447-.726.682-1.298l.037-.097-4.46-11.057Z"
+													></path><path
+														fill-rule="evenodd"
+														d="M42.79 15.897c-.428-.495-.691-1.133-.79-1.914h8.336c.03-.381.044-.719.044-1.012 0-.953-.212-1.855-.638-2.706-.41-.85-1.034-1.54-1.87-2.068-.836-.528-1.848-.792-3.036-.792-1.202 0-2.222.279-3.058.836a5.172 5.172 0 0 0-1.892 2.156 6.825 6.825 0 0 0-.616 2.882c0 1.027.22 1.987.66 2.882a5.377 5.377 0 0 0 1.958 2.178c.866.557 1.9.836 3.102.836.939 0 1.782-.154 2.53-.462.763-.308 1.386-.755 1.87-1.342a4.45 4.45 0 0 0 .924-2.112h-2.75a1.896 1.896 0 0 1-.88 1.166c-.44.279-.982.418-1.628.418-.953 0-1.708-.315-2.266-.946Zm-.704-4.004h5.302a2.931 2.931 0 0 0-.374-1.21 2.158 2.158 0 0 0-.88-.858c-.366-.205-.8-.308-1.298-.308-.601 0-1.122.147-1.562.44-.425.293-.755.719-.99 1.276a4.26 4.26 0 0 0-.198.66ZM33.25 3.137h-6.82v15.862h2.948V12.64h2.024c.748 0 1.364.088 1.849.264.498.176.88.455 1.144.836.278.367.469.85.572 1.452l.418 2.442a6.9 6.9 0 0 0 .175.748c.088.235.184.44.286.616h3.19a4.003 4.003 0 0 1-.352-.792 9.97 9.97 0 0 1-.264-.946.414.414 0 0 1-.022-.132l-.528-2.508c-.146-.69-.366-1.247-.66-1.672-.293-.425-.703-.763-1.232-1.012.5-.25.925-.58 1.276-.99a4.59 4.59 0 0 0 .837-1.408c.19-.513.285-1.056.285-1.628 0-.983-.212-1.833-.637-2.552a4.051 4.051 0 0 0-1.782-1.65c-.763-.381-1.665-.572-2.706-.572Zm.947 6.666c-.382.176-.837.264-1.364.264h-3.454V5.733h3.454c.791 0 1.407.19 1.848.572.454.381.681.917.681 1.606 0 .44-.102.821-.308 1.144-.19.323-.476.572-.858.748Z"
+														clip-rule="evenodd"></path><path
+														d="M54.967 19.153c-.982 0-1.767-.264-2.354-.792-.586-.543-.88-1.335-.88-2.376V2.96h2.772v12.716c0 .337.096.609.286.814.206.19.477.286.814.286.19 0 .352-.015.484-.044v2.266a3.705 3.705 0 0 1-1.122.154Z"
+													></path><path
+														fill-rule="evenodd"
+														d="M59.054 18.449c.82.484 1.796.726 2.926.726.718 0 1.37-.14 1.958-.418.6-.293 1.034-.66 1.298-1.1v1.342h2.772V7.58h-2.772v1.298c-.338-.44-.8-.792-1.386-1.056a4.404 4.404 0 0 0-1.914-.418c-1.1 0-2.061.25-2.882.748-.807.484-1.43 1.173-1.87 2.068-.44.88-.66 1.9-.66 3.058 0 1.159.212 2.185.638 3.08a4.932 4.932 0 0 0 1.892 2.09Zm4.906-2.09c-.455.279-.983.418-1.584.418-.602 0-1.13-.14-1.584-.418a3.051 3.051 0 0 1-1.078-1.232c-.25-.543-.374-1.159-.374-1.848 0-.69.124-1.298.374-1.826.264-.528.623-.931 1.078-1.21.454-.293.982-.44 1.584-.44.6 0 1.129.147 1.584.44.469.279.828.682 1.078 1.21.249.528.374 1.137.374 1.826 0 .704-.125 1.32-.374 1.848a2.85 2.85 0 0 1-1.078 1.232ZM15 5.787V4a4 4 0 1 0-8 0v3.93L3.205 8.948a4 4 0 1 0 2.07 7.727l1.727-.462V18a4 4 0 0 0 8 0v-3.93l3.796-1.018a4 4 0 1 0-2.07-7.728l-1.726.463Zm-2 .536V4a2 2 0 1 0-4 0v3.395l4-1.072Zm0 2.07L9 9.465v4.141l4-1.072v-4.14Zm2 3.605v-4.14l2.245-.602a2 2 0 0 1 1.035 3.864l-3.28.879Zm-2 2.607-4 1.072V18a2 2 0 1 0 4 0v-3.395Zm-6-.463v-4.141l-3.278.879a2 2 0 1 0 1.035 3.863l2.244-.6Z"
+														clip-rule="evenodd"></path></svg
+												>
+												<p class="mt-3 text-sm text-white/80">
+													Sass is the most mature, stable, and <br />powerful professional grade.
+												</p>
+												<ul class="mt-4 flex items-center gap-3.5">
+													<li class="flex items-center gap-1 text-xs font-semibold leading-none text-slate-500">
+														<i class="fa-solid fa-fw fa-users"></i>
+														 109k
+													</li>
+													<li class="flex items-center gap-1 text-xs font-semibold leading-none text-slate-500">
+														<i class="fa-solid fa-fw fa-book"></i>
+														 W3C
+													</li>
+												</ul>
+												<span class="mt-6 inline-block text-sm font-semibold text-white">Coming Soon</span>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="swiper-slide">
+									<div
+										class="relative h-[210px] overflow-hidden rounded-[14px] bg-white/20 after:absolute after:inset-0 after:z-30 after:block after:h-full after:w-full after:rounded-[14px] after:border after:border-white/20 after:content-['']"
+									>
+										<Image src={ImgAbstract02} width={480} alt="" class="absolute left-0 top-0 z-10 h-full w-full object-cover" />
+										<div class="relative z-30">
+											<div class="pl-8 pt-8">
+												<svg class="fill-current text-white" width="139" height="24" viewBox="0 0 139 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+													<path
+														fill-rule="evenodd"
+														clip-rule="evenodd"
+														d="M24 0H0V12C0 18.6274 5.37258 24 12 24C18.6274 24 24 18.6274 24 12V0ZM14.5 6V2.5H21.5V6C21.5 7.933 19.933 9.5 18 9.5C16.067 9.5 14.5 7.933 14.5 6ZM18 12C19.3062 12 20.5149 11.5826 21.5 10.874V12C21.5 17.2467 17.2467 21.5 12 21.5C6.75329 21.5 2.5 17.2467 2.5 12V2.5H12V6C12 9.31371 14.6863 12 18 12Z"
+													></path>
+													<path d="M60.6389 19H62.9528V9.18182H60.6389V19Z"></path>
+													<path
+														d="M61.8023 7.78835C62.5373 7.78835 63.1382 7.22585 63.1382 6.53551C63.1382 5.83878 62.5373 5.27628 61.8023 5.27628C61.0608 5.27628 60.4599 5.83878 60.4599 6.53551C60.4599 7.22585 61.0608 7.78835 61.8023 7.78835Z"
+													></path>
+													<path
+														d="M45.5434 14.2635V5.90909H47.9148V14.4616C47.9148 17.2741 45.7927 19.1982 42.6031 19.1982C39.4006 19.1982 37.2913 17.2741 37.2913 14.4616V5.90909H39.6627V14.2635C39.6627 15.9062 40.8005 17.0824 42.6031 17.0824C44.3992 17.0824 45.5434 15.9062 45.5434 14.2635Z"
+													></path>
+													<path
+														d="M54.4215 11.0099C53.2006 11.0099 52.3441 11.8281 52.3441 13.2472V19H50.0302V9.18182H52.2418V10.8501H52.3569C52.8043 9.7571 53.8143 9.05398 55.2844 9.05398C57.3107 9.05398 58.653 10.3963 58.6466 12.7486V19H56.3327V13.1065C56.3327 11.7962 55.6168 11.0099 54.4215 11.0099Z"
+													></path>
+													<path
+														d="M67.9062 9.18182H69.9453V10.9716H67.9062V19H65.5923V10.9716H64.1413V9.18182H65.5923V8.25497C65.5923 6.27344 66.9538 5.29545 68.6605 5.29545C69.4595 5.29545 70.1179 5.46165 70.4183 5.56392L69.9517 7.35369C69.7599 7.29616 69.4531 7.21307 69.0887 7.21307C68.2258 7.21307 67.9062 7.64133 67.9062 8.40838V9.18182Z"
+													></path>
+													<path
+														fill-rule="evenodd"
+														clip-rule="evenodd"
+														d="M75.311 19.1918C78.1874 19.1918 80.0155 17.1655 80.0155 14.1293C80.0155 11.0866 78.1874 9.05398 75.311 9.05398C72.4345 9.05398 70.6064 11.0866 70.6064 14.1293C70.6064 17.1655 72.4345 19.1918 75.311 19.1918ZM75.3237 17.3381C73.7321 17.3381 72.9523 15.919 72.9523 14.1229C72.9523 12.3267 73.7321 10.8885 75.3237 10.8885C76.8898 10.8885 77.6696 12.3267 77.6696 14.1229C77.6696 15.919 76.8898 17.3381 75.3237 17.3381Z"
+													></path>
+													<path
+														d="M83.9334 19H81.6195V9.18182H83.8631V10.8182H83.9653C84.3233 9.6804 85.2629 9.04119 86.3879 9.04119C86.6436 9.04119 87.0079 9.06676 87.2189 9.10511V11.2337C87.0207 11.1697 86.5349 11.0994 86.145 11.0994C84.873 11.0994 83.9334 11.9815 83.9334 13.228V19Z"
+													></path>
+													<path
+														d="M88.3962 19H90.7101V13.0298C90.7101 11.8217 91.5155 11.0035 92.5126 11.0035C93.4906 11.0035 94.1618 11.6619 94.1618 12.6719V19H96.431V12.8764C96.431 11.7706 97.0894 11.0035 98.208 11.0035C99.1412 11.0035 99.8827 11.5533 99.8827 12.7678V19H102.203V12.4098C102.203 10.2173 100.937 9.05398 99.1348 9.05398C97.7094 9.05398 96.6227 9.7571 96.1881 10.8501H96.0858C95.7087 9.73792 94.7563 9.05398 93.4331 9.05398C92.1163 9.05398 91.132 9.73153 90.7229 10.8501H90.6078V9.18182H88.3962V19Z"
+													></path>
+													<path
+														d="M109.956 5.73011C112.858 5.73011 115.095 7.41761 115.498 10.326H113.107C112.833 8.75994 111.586 7.85866 109.994 7.85866C107.853 7.85866 106.345 9.50142 106.345 12.4545C106.345 15.4588 107.866 17.0504 109.988 17.0504C111.554 17.0504 112.807 16.1875 113.107 14.6534L115.498 14.6662C115.134 17.1655 113.069 19.179 109.956 19.179C106.504 19.179 103.96 16.6797 103.96 12.4545C103.96 8.22301 106.536 5.73011 109.956 5.73011Z"
+													></path>
+													<path
+														d="M124.424 9.50781H126.706C126.661 7.29616 124.776 5.73011 121.989 5.73011C119.24 5.73011 117.175 7.27699 117.182 9.59091C117.182 11.4702 118.518 12.5504 120.672 13.1065L122.161 13.4901C123.574 13.848 124.507 14.2891 124.514 15.3054C124.507 16.424 123.446 17.1719 121.899 17.1719C120.416 17.1719 119.266 16.5071 119.17 15.1328H116.837C116.933 17.7344 118.869 19.1982 121.918 19.1982C125.057 19.1982 126.879 17.6321 126.885 15.3246C126.879 13.0554 125.006 12.0199 123.037 11.5533L121.81 11.2464C120.736 10.9908 119.572 10.5369 119.585 9.44389C119.592 8.45951 120.474 7.73721 121.957 7.73721C123.369 7.73721 124.303 8.39559 124.424 9.50781Z"
+													></path>
+													<path
+														d="M138.035 9.50781H135.754C135.632 8.39559 134.699 7.73721 133.286 7.73721C131.803 7.73721 130.921 8.45951 130.915 9.44389C130.902 10.5369 132.065 10.9908 133.139 11.2464L134.366 11.5533C136.335 12.0199 138.208 13.0554 138.214 15.3246C138.208 17.6321 136.386 19.1982 133.248 19.1982C130.199 19.1982 128.262 17.7344 128.166 15.1328H130.499C130.595 16.5071 131.746 17.1719 133.229 17.1719C134.776 17.1719 135.837 16.424 135.843 15.3054C135.837 14.2891 134.903 13.848 133.491 13.4901L132.001 13.1065C129.847 12.5504 128.511 11.4702 128.511 9.59091C128.505 7.27699 130.57 5.73011 133.318 5.73011C136.105 5.73011 137.991 7.29616 138.035 9.50781Z"
+													></path>
+												</svg>
+
+												<p class="mt-3 text-sm text-white/80">
+													Sass is the most mature, stable, and <br />powerful professional grade.
+												</p>
+												<ul class="mt-4 flex items-center gap-3.5">
+													<li class="flex items-center gap-1 text-xs font-semibold leading-none text-slate-500">
+														<i class="fa-solid fa-fw fa-users"></i>
+														 109k
+													</li>
+													<li class="flex items-center gap-1 text-xs font-semibold leading-none text-slate-500">
+														<i class="fa-solid fa-fw fa-book"></i>
+														 W3C
+													</li>
+												</ul>
+												<span class="mt-6 inline-block text-sm font-semibold text-white">Coming Soon</span>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<!-- If we need pagination -->
+							<div class="mt-4 flex items-center justify-center">
+								<div class="relative flex h-[32px] w-[85px] items-center justify-center">
+									<div class="h-9 w-px bg-white/10"></div>
+									<div class="swiper-button-prev"></div>
+									<div class="swiper-button-next"></div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="relative overflow-hidden bg-black/[0.15] lg:rounded-lg">
+					<div class="px-6 pt-6 sm:px-9">
+						<h4 class="mb-3 font-semibold leading-none text-white">Hand-coded Prototypes</h4>
+						<p class="text-sm text-slate-200">Complete any action in seconds with the global command menu.</p>
+					</div>
+					<div class="flex aspect-[6/4] flex-col items-center justify-center gap-6 sm:aspect-[12/7]">
+						<TechnologyCarousel />
+					</div>
+				</div>
+				<div class="relative overflow-hidden bg-black/[0.15] lg:rounded-lg">
+					<div class="px-6 pt-6 sm:px-9">
+						<h4 class="mb-3 font-semibold leading-none text-white">Hand-coded Prototypes</h4>
+						<p class="text-sm text-slate-200">Complete any action in seconds with the global command menu.</p>
+					</div>
+					<div class="flex aspect-[6/4] items-center justify-center sm:aspect-[12/7]">
+						<Image src={ImgPurchaseCard} alt="" />
+					</div>
+				</div>
+			</div>
+		</div>
+	</article>
+</section>
+
+<script>
+	import { gsap } from 'gsap';
+	import { ScrollTrigger } from 'gsap/ScrollTrigger';
+	gsap.registerPlugin(ScrollTrigger);
+
+	ScrollTrigger.create({
+		trigger: '#product-design-expertise',
+		start: 'top center',
+		end: 'bottom center',
+		onEnter: () => {
+			document.querySelector('#product-design-expertise .section-card').classList.add('is-active');
+		},
+		onLeave: () => {
+			document.querySelector('#product-design-expertise .section-card').classList.remove('is-active');
+		},
+		onEnterBack: () => {
+			document.querySelector('#product-design-expertise .section-card').classList.add('is-active');
+		},
+		onLeaveBack: () => {
+			document.querySelector('#product-design-expertise .section-card').classList.remove('is-active');
+		},
+	});
+</script>

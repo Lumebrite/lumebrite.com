@@ -1,0 +1,41 @@
+---
+const { entries } = Astro.props;
+
+let navArray: {
+	title: string;
+	weight: number;
+	isCurrent: boolean;
+}[] = [];
+
+pages.forEach((page) => {
+	let schema = {
+		title: page.frontmatter.title,
+		url: page.url,
+		collection: helper.buildCollection(page.url),
+		category: helper.buildCategory(page.url),
+		breadcrumb: helper.buildBreadcrumb(page.url),
+		weight: page.frontmatter.weight,
+		isCurrent: Astro.url.pathname == page.url + '/',
+	};
+	navArray.push(schema);
+});
+---
+
+<ul class="mb-6 space-y-0.5 text-[13px] text-white">
+	{
+		entries.map((entry) => (
+			<>
+				<li class="text-semibold px-4 font-semibold leading-7 tracking-tight">{entry.category}</li>
+				<li class="px-3">
+					<ul class="leading-7">
+						{entry.pages.map((page) => (
+							<li class="px-5 text-white/60">
+								<a href={page.url}>{page.title}</a>
+							</li>
+						))}
+					</ul>
+				</li>
+			</>
+		))
+	}
+</ul>

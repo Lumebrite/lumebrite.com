@@ -1,0 +1,174 @@
+---
+// Content Collections
+import { getCollection } from 'astro:content';
+const worksCollection = await getCollection('works');
+
+import Layout from '@layouts/Layout.astro';
+import { Image } from 'astro:assets';
+
+// Images
+import ImgBackground from '@assets/backgrounds/shubham-dhage-kUptPYLCnbk-unsplash.jpg';
+---
+
+<Layout title="Welcome to Astro.">
+	<div class="absolute left-0 top-0 h-screen w-full">
+		<div class="relative h-screen w-full">
+			<Image src={ImgBackground} alt="" width="1600" class="h-full w-full object-cover opacity-40" />
+			<div class="absolute left-0 top-0 h-full w-full bg-gradient-to-b from-[#1F1D20]/0 to-[#1F1D20]"></div>
+		</div>
+	</div>
+
+	<div class="relative z-20">
+		<!-- Hero -->
+		<header id="header" class="mb-[200px]">
+			<div class="relative z-20 mx-auto max-w-[1440px] px-6 sm:px-10 2xl:max-w-[1680px]">
+				<div id="hero" class="pt-[110px]">
+					<h1 class="mb-7 max-w-3xl text-[22px] leading-[1.35] tracking-[-0.015em] text-white">
+						We help early-stage companies look the part by delivering beautiful identity designs, product concepts, and user experiences, beautifully packaged, hand-coded and ready
+						to use.
+					</h1>
+					<p class="max-w-[270px] text-sm text-white/60">Fen Fen Chen is a designer and art director with over 15 years experience.</p>
+				</div>
+			</div>
+		</header>
+
+		<div class="relative z-30">
+			<main class="mx-auto max-w-[1440px] px-4 sm:px-10 2xl:max-w-[1680px]">
+				<section x-data="portfolioFilter()" class="pb-7">
+					<article class="section-card pb-0 pt-8 sm:py-12">
+						<div class="px-6 sm:px-9 xl:px-12">
+							<div class="">
+								<h3 class="mb-6 max-w-xl text-2xl font-light tracking-[-0.015em] text-white sm:text-3xl">
+									Transparent, gaudited, <br /><span class="text-red-400">& open source</span>
+								</h3>
+								<p class="max-w-2xl text-base text-white/70 sm:text-lg">
+									Fingerprint provides a complete view of your users across web and mobile. The visitor identification API identifies up to 99.5% of returning visitors, while Smart
+									Signals provide actionable real-time intelligence about visitor intent.
+								</p>
+							</div>
+
+							<div class="mt-24 px-0 text-white lg:mt-32">
+								<nav class="mb-5 flex items-center gap-5 text-sm font-medium text-white/60">
+									<a
+										x-bind:class="currentFilter === 'all' ? 'text-white' : 'text-white/60'"
+										x-on:click.prevent="filter('All')"
+										class="flex cursor-pointer items-center gap-2 hover:text-white"
+										>All Projects <div class="flex h-[18px] items-center rounded-full bg-white px-2 text-xs font-semibold text-black/90">21</div></a
+									>
+									<a
+										x-bind:class="currentFilter === 'product-design' ? 'text-white' : 'text-white/60'"
+										x-on:click.prevent="filter('Product Design')"
+										class="flex cursor-pointer items-center gap-2 hover:text-white">Product Design</a
+									>
+									<a
+										x-bind:class="currentFilter === 'web-development' ? 'text-white' : 'text-white/60'"
+										x-on:click.prevent="filter('Web Development')"
+										class="flex cursor-pointer items-center gap-2 hover:text-white">Web Development</a
+									>
+									<a
+										x-bind:class="currentFilter === 'brand-design' ? 'text-white' : 'text-white/60'"
+										x-on:click.prevent="filter('Brand Design')"
+										class="flex cursor-pointer items-center gap-2 hover:text-white">Brand Design</a
+									>
+									<a
+										x-bind:class="currentFilter === 'digital-art' ? 'text-white' : 'text-white/60'"
+										x-on:click.prevent="filter('Digital Art')"
+										class="flex cursor-pointer items-center gap-2 hover:text-white">Digital Art</a
+									>
+								</nav>
+								<div class="grid grid-cols-5 gap-2">
+									{
+										worksCollection.map((post) => (
+											<>
+												<a
+													x-bind:class="{ 'opacity-10': !isVisible($el.getAttribute('data-tags')) }"
+													href={`/works/${post.slug}`}
+													class="block aspect-[6/8] opacity-80 duration-300 hover:opacity-100"
+													data-tags={'All,' + post.data.tags.map((tag) => tag)}
+												>
+													<Image src={post.data.thumbnail} width="1200" alt="Sample Image" class="h-full w-full object-cover" />
+												</a>
+											</>
+										))
+									}
+								</div>
+							</div>
+						</div>
+					</article>
+				</section>
+			</main>
+		</div>
+
+		<!-- <section class="relative z-30 mx-auto hidden max-w-[1720px] sm:px-10">
+		<div class="overflow-hidden rounded-[32px] bg-[#2B2B2B] sm:rounded-[14px]">
+			<div class="mb-[160px] p-8 sm:p-12">
+				<h3 class="mb-7 max-w-xl text-xl leading-[1.35] tracking-[-0.015em] text-white 2xl:max-w-2xl 2xl:text-2xl 2xl:leading-[1.2]">
+					Jin Park is a designer and art director with over 15 years experience. She is currently based in San Francisco but often collaborates with clients around the world.
+				</h3>
+				<p class="max-w-[270px] text-sm text-white/60">Fen Fen Chen is a designer and art director with over 15 years experience.</p>
+			</div>
+
+			<div class="grid grid-cols-1 gap-6 px-6 pb-12 sm:grid-cols-3 sm:px-12">
+				<div class="space-y-6">
+					<CardAwards />
+					<CardContributions />
+					<CardCurrentlyReading />
+				</div>
+				<div class="space-y-6">
+					<CardGHBadges />
+					<CardOpenSource />
+					<CardWatercooler />
+				</div>
+				<div class="space-y-6">
+					<CardTestimonials />
+					<CardPhotography />
+				</div>
+			</div>
+		</div>
+	</section> -->
+	</div>
+
+	<script>
+		import { gsap } from 'gsap';
+		import { ScrollTrigger } from 'gsap/ScrollTrigger';
+		gsap.registerPlugin(ScrollTrigger);
+
+		// gsap.to('#home-splash', {
+		// 	scrollTrigger: {
+		// 		trigger: '#home-splash', // start the animation when "#home-splash" enters the viewport (once)
+
+		// 		start: 'top center',
+		// 		scrub: true,
+		// 	},
+		// 	scale: 0.5,
+		// 	translateY: 300,
+		// 	opacity: 0,
+		// });
+
+		gsap.to('#hero', {
+			scrollTrigger: {
+				trigger: '#header', // start the animation when trigger enters the viewport (once)
+				start: 'top top',
+				scrub: true,
+				pin: true,
+				pinSpacing: false,
+			},
+			// scale: 0.9,
+			// translateY: 300,
+			opacity: 0,
+			blurElement: 20,
+		});
+
+		gsap.to('#splash', {
+			scrollTrigger: {
+				trigger: '#splash', // start the animation when trigger enters the viewport (once)
+				start: 'top 15%',
+				scrub: true,
+				pin: true,
+			},
+			scale: 0.9,
+			// translateY: 400,
+			opacity: 0,
+		});
+	</script>
+</Layout>

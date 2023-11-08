@@ -1,0 +1,296 @@
+---
+interface Props {
+	title: string;
+}
+
+const { title } = Astro.props;
+
+import { Icon } from 'astro-icon';
+import Navbar from '@components/Navbar.astro';
+import Footer from '@components/Footer.astro';
+
+import '@styles/main.css';
+---
+
+<!doctype html>
+<html lang="en" class="bg-[#1f1d20]">
+	<head>
+		<title>{title}</title>
+
+		<!-- Meta -->
+		<meta charset="UTF-8" />
+		<meta name="description" content="Astro description" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="theme-color" content="#000000" />
+		<meta name="generator" content={Astro.generator} />
+
+		<!-- Favicon -->
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+		<!-- Preload font -->
+		<link rel="preload" href="/fonts/Saans/GX/SaansVFUprights.woff2" as="font" type="font/woff2" crossorigin />
+	</head>
+	<body class="font-sans font-normal text-white antialiased">
+		<Navbar />
+		<slot />
+		<Footer />
+	</body>
+</html>
+<script>
+	'use strict';
+
+	// Swiper JS
+	import Swiper from 'swiper/bundle';
+	import 'swiper/css/bundle';
+
+	// Alpine JS
+	import Alpine from 'alpinejs';
+
+	// GSAP
+	import { gsap } from 'gsap';
+	import { ScrollTrigger } from 'gsap/ScrollTrigger';
+	gsap.registerPlugin(ScrollTrigger);
+
+	// const homeSection01AI = gsap.timeline({ repeat: 0, repeatDelay: 0 });
+	// homeSection01AI.to('.ai-dots', {
+	// 	scrollTrigger: {
+	// 		trigger: '#home-section-01',
+	// 		start: 'top center',
+	// 		markers: true,
+	// 	},
+	// 	opacity: 0,
+	// 	duration: 4,
+	// });
+
+	// then we can control the whole thing easily...
+	// tl.pause();
+	// tl.resume();
+
+	const swiperHomeShowcase = new Swiper('.swiper-home-showcase', {
+		grabCursor: true,
+		effect: 'creative',
+		slidesPerView: 1.3,
+		loop: true,
+		speed: 600,
+		autoplay: {
+			delay: 4000,
+			disableOnInteraction: false,
+		},
+		creativeEffect: {
+			prev: {
+				shadow: true,
+				translate: [0, 0, -400],
+			},
+			next: {
+				shadow: true,
+				translate: ['100%', 0, 0],
+			},
+		},
+		// Navigation arrows
+		navigation: {
+			nextEl: '.swiper-button-next',
+		},
+	});
+
+	const swiperServicesOS = new Swiper('.swiper-services-os', {
+		// Optional parameters
+		// loop: true,
+		slidesPerView: 1.4,
+		spaceBetween: 30,
+		centeredSlides: true,
+		// If we need pagination
+		pagination: {
+			el: '.swiper-pagination',
+		},
+		// Navigation arrows
+		navigation: {
+			nextEl: '.swiper-button-next',
+			prevEl: '.swiper-button-prev',
+		},
+	});
+
+	const swiperServicesHolisticBrand = new Swiper('.swiper-services-holistic-brand', {
+		effect: 'cards',
+		grabCursor: true,
+	});
+
+	const swiperServicesBrandGuideline = new Swiper('.swiper-services-brand-guideline', {
+		loop: true,
+		effect: 'coverflow',
+		grabCursor: true,
+		centeredSlides: true,
+		slidesPerView: 'auto',
+		coverflowEffect: {
+			rotate: 50,
+			stretch: 0,
+			depth: 100,
+			modifier: 1,
+			slideShadows: true,
+		},
+		autoplay: {
+			delay: 2500,
+			disableOnInteraction: false,
+		},
+		speed: 2000,
+	});
+
+	const swiperServicesDetailedArtwork = new Swiper('.swiper-services-detailed-artwork', {
+		loop: true,
+		effect: 'coverflow',
+		grabCursor: true,
+		centeredSlides: true,
+		slidesPerView: 'auto',
+		coverflowEffect: {
+			rotate: 50,
+			stretch: 0,
+			depth: 100,
+			modifier: 1,
+			slideShadows: true,
+		},
+		autoplay: {
+			delay: 2500,
+			disableOnInteraction: false,
+		},
+		speed: 2000,
+		// allowTouchMove: false,
+	});
+
+	const swiper = new Swiper('.swiperx', {
+		// Install modules
+
+		// Optional parameters
+		loop: true,
+		autoplay: {
+			delay: 0,
+			disableOnInteraction: false,
+		},
+		speed: 12000,
+		// speed: 90000,
+		slidesPerView: 'auto',
+		spaceBetween: 80,
+		allowTouchMove: false,
+	});
+
+	// const ipadSwiper01 = new Swiper('.ipad-swiper-01', {
+	//   // Optional parameters
+	//   loop: true,
+	//   centeredSlides: true,
+	//   autoplay: {
+	//     disableOnInteraction: false,
+	//   },
+	//   speed: 600,
+	//   slidesPerView: 1,
+	//   spaceBetween: 0,
+	//   allowTouchMove: false,
+	// });
+
+	const ipadSwiper02 = new Swiper('.ipad-swiper-02', {
+		// Optional parameters
+		loop: true,
+		autoplay: {
+			disableOnInteraction: false,
+		},
+		effect: 'coverflow',
+		centeredSlides: true,
+		slidesPerView: 'auto',
+		coverflowEffect: {
+			rotate: 50,
+			stretch: 0,
+			depth: 100,
+			modifier: 1,
+			slideShadows: true,
+		},
+		allowTouchMove: false,
+	});
+
+	document.addEventListener('alpine:init', () => {
+		Alpine.data('portfolioFilter', () => ({
+			currentFilter: 'all',
+
+			filter(tag) {
+				this.currentFilter = this.formatTag(tag);
+			},
+
+			isVisible(tags) {
+				// If current filter is "all", show all items
+				if (this.currentFilter === 'all') return true;
+
+				const tagArray = tags.split(',').map((tag) => this.formatTag(tag)); // Convert data-tags string to array and format
+				return tagArray.includes(this.currentFilter);
+			},
+
+			formatTag(tag) {
+				return tag.toLowerCase().replace(/\s+/g, '-'); // Convert to lowercase and replace spaces with hyphens
+			},
+		}));
+
+		Alpine.data('tabs', () => ({
+			width: 108,
+			left: 374,
+			current: 5,
+
+			init: function () {
+				let tabs = this.$refs.tabs.querySelectorAll('a');
+				this.width = tabs[this.current].offsetWidth;
+				this.left = tabs[this.current].offsetLeft;
+			},
+			moveBubble(e) {
+				this.width = e.currentTarget.offsetWidth;
+				this.left = e.currentTarget.offsetLeft;
+			},
+			resetBubble(e, targetTab) {
+				let tabs = this.$refs.tabs.querySelectorAll('a');
+				this.width = tabs[this.current].offsetWidth;
+				this.left = tabs[this.current].offsetLeft;
+			},
+		}));
+
+		Alpine.data('imageCompare', () => ({
+			width: null,
+			init: function () {
+				this.width = this.$refs.imageCompareContainer.offsetWidth / 2;
+				this.slideMoveHandler = this.slideMove.bind(this); // Save a reference to the bound slideMove function
+				window.addEventListener('resize', this.resetContainer.bind(this));
+			},
+			resetContainer(e) {
+				e.preventDefault();
+				this.width = this.$refs.imageCompareContainer.offsetWidth / 2;
+			},
+			slideReady(e) {
+				e.preventDefault();
+
+				document.addEventListener('mouseup', this.slideFinish.bind(this));
+				document.addEventListener('mousemove', this.slideMoveHandler);
+				document.documentElement.style.cursor = 'grabbing';
+
+				document.addEventListener('touchend', this.slideFinish.bind(this));
+				document.addEventListener('touchmove', this.slideMoveHandler);
+			},
+			slideFinish() {
+				document.removeEventListener('mousemove', this.slideMoveHandler);
+				document.removeEventListener('touchmove', this.slideMoveHandler);
+				document.documentElement.style.cursor = 'default';
+			},
+			slideMove(e) {
+				let containerWidth = this.$refs.imageCompareContainer.offsetWidth;
+				let slideWidth = e.clientX - this.$refs.imageCompareContainer.getBoundingClientRect().x;
+
+				if (e.touches && e.touches[0]) {
+					slideWidth = e.touches[0].clientX - this.$refs.imageCompareContainer.getBoundingClientRect().x;
+				} else if (e.clientX) {
+					slideWidth = e.clientX - this.$refs.imageCompareContainer.getBoundingClientRect().x;
+				}
+
+				if (slideWidth <= 24) {
+					this.width = 24;
+				} else if (slideWidth >= containerWidth - 24) {
+					this.width = containerWidth - 24;
+				} else {
+					this.width = slideWidth;
+				}
+			},
+		}));
+	});
+
+	Alpine.start();
+</script>

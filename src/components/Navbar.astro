@@ -1,0 +1,95 @@
+---
+
+---
+
+<!-- Nav bar -->
+<div class="pointer-events-none fixed left-0 top-0 z-40 mt-5 w-full sm:mt-7">
+	<div class="mx-auto flex w-full max-w-[1440px] items-center justify-between px-4 sm:px-10 2xl:max-w-[1680px]">
+		<nav
+			class="pointer-events-auto relative hidden items-center rounded-[14px] border border-white/10 bg-[#1F1D20]/80 px-1 py-1 backdrop-blur-lg sm:flex"
+			x-data="tabs"
+			x-ref="tabs"
+		>
+			<div
+				class="absolute left-[100px] top-[4px] h-9 rounded-[10px] bg-white duration-300"
+				:style="'left: ' + left + 'px;' + 'width: ' + width + 'px'"
+				style="left: 374px; width: 108px"
+			>
+			</div>
+			<a
+				href="/"
+				class="relative z-20 flex h-9 items-center justify-center px-1.5 text-xl font-medium tracking-[-0.02em]"
+				@mouseenter="moveBubble($event)"
+				@mouseleave="resetBubble($event)"
+			>
+				<div class="flex h-9 w-9 items-center justify-center">
+					<svg
+						class="h-auto w-[24px]
+            fill-current
+            text-[#ED5035]"
+						xmlns="http://www.w3.org/2000/svg"
+						width="42"
+						height="42"
+						fill="currentColor"
+						viewBox="0 0 42 42"
+						><path
+							d="M23 41.906a20.941 20.941 0 0 0 3-.505V.6a20.943 20.943 0 0 0-3-.505v41.812ZM31 39.47c-.957.52-1.96.968-3 1.335V1.195c1.04.368 2.043.815 3 1.334v36.942ZM33 38.236c5.44-3.795 9-10.1 9-17.236 0-7.136-3.56-13.441-9-17.236v34.472ZM21 0C9.402 0 0 9.402 0 21s9.402 21 21 21V0Z"
+						></path></svg
+					>
+				</div>
+			</a>
+
+			<a href="/works" class="relative z-20 px-3 text-sm mix-blend-difference sm:px-4" @mouseenter="moveBubble($event)" @mouseleave="resetBubble($event)">Works</a>
+			<a href="/expertise" class="relative z-20 px-3 text-sm mix-blend-difference sm:px-4" @mouseenter="moveBubble($event)" @mouseleave="resetBubble($event)">Expertise</a>
+			<a href="/about" class="relative z-20 px-3 text-sm mix-blend-difference sm:px-4" @mouseenter="moveBubble($event)" @mouseleave="resetBubble($event)">About</a>
+			<a
+				href="https://github.com/jinsupark"
+				target="_blank"
+				class="relative z-20 px-3 text-sm mix-blend-difference sm:px-4"
+				@mouseenter="moveBubble($event)"
+				@mouseleave="resetBubble($event)">GitHub</a
+			>
+			<a
+				href="mailto:jinsupark@icloud.com"
+				class="is-active relative z-20 px-3 text-sm mix-blend-difference sm:px-4"
+				@mouseenter="moveBubble($event)"
+				@mouseleave="resetBubble($event)">Get in touch</a
+			>
+		</nav>
+
+		<!-- Mobile Nav -->
+		<nav class="pointer-events-auto relative flex w-full items-center justify-between rounded-[14px] border border-white/10 bg-[#1F1D20]/80 px-1 py-1 backdrop-blur-lg sm:hidden">
+			<div class="flex items-center">
+				<a href="/" class="relative z-20 flex h-9 items-center justify-center px-1.5 text-xl font-medium tracking-[-0.02em]">
+					<div class="flex h-9 w-9 items-center justify-center">
+						<svg
+							class="h-auto w-[24px]
+            fill-current
+            text-[#ED5035]"
+							xmlns="http://www.w3.org/2000/svg"
+							width="42"
+							height="42"
+							fill="currentColor"
+							viewBox="0 0 42 42"
+							><path
+								d="M23 41.906a20.941 20.941 0 0 0 3-.505V.6a20.943 20.943 0 0 0-3-.505v41.812ZM31 39.47c-.957.52-1.96.968-3 1.335V1.195c1.04.368 2.043.815 3 1.334v36.942ZM33 38.236c5.44-3.795 9-10.1 9-17.236 0-7.136-3.56-13.441-9-17.236v34.472ZM21 0C9.402 0 0 9.402 0 21s9.402 21 21 21V0Z"
+							></path></svg
+						>
+					</div>
+				</a>
+
+				<a href="/works/" class="px-2 text-sm text-white sm:px-4">Works</a>
+				<a href="#" class="px-2 text-sm text-white sm:px-4">About</a>
+				<a href="/expertise" class="px-2 text-sm text-white sm:px-4">Expertise</a>
+			</div>
+			<a href="#" class="flex items-center gap-[2px] px-3 sm:px-4">
+				<div class="h-1 w-1 rounded-full bg-white"></div>
+				<div class="h-1 w-1 rounded-full bg-white"></div>
+				<div class="h-1 w-1 rounded-full bg-white"></div>
+			</a>
+		</nav>
+
+		<!-- Quick info -->
+		<button class="hidden h-9 w-9 items-center justify-center rounded-full border border-white/10 bg-white text-black shadow-xl backdrop-blur-lg sm:flex"> ?</button>
+	</div>
+</div>

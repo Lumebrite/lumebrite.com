@@ -1,0 +1,118 @@
+---
+import Layout from '@layouts/Layout.astro';
+import { Image } from 'astro:assets';
+
+// Images
+import ImgBackground from '@assets/backgrounds/adrien-olichon-gOdavfpH-3s-unsplash.jpg';
+
+// Sections
+import CodeDev from '@components/sections/expertise/CodeDev/index.astro';
+import ProductDesign from '@components/sections/expertise/ProductDesign/index.astro';
+import IdentityDesign from '@components/sections/expertise/IdentityDesign/index.astro';
+import DigitalArt from '@components/sections/expertise/DigitalArt/index.astro';
+---
+
+<Layout title="Welcome to Astro.">
+	<div class="absolute left-0 top-0 h-screen w-full">
+		<div class="relative h-screen w-full">
+			<Image src={ImgBackground} alt="" width="1600" class="h-full w-full object-cover opacity-40" />
+			<div class="absolute left-0 top-0 h-full w-full bg-gradient-to-b from-[#1F1D20]/0 to-[#1F1D20]"></div>
+		</div>
+	</div>
+
+	<div class="relative z-20">
+		<!-- Hero -->
+		<header id="header" class="mb-[200px]">
+			<div class="relative z-20 mx-auto max-w-[1440px] px-6 sm:px-10 2xl:max-w-[1680px]">
+				<div id="hero" class="pt-[110px]">
+					<h1 class="mb-7 max-w-3xl text-[22px] leading-[1.35] tracking-[-0.015em] text-white">
+						We help early-stage companies look the part by delivering beautiful identity designs, product concepts, and user experiences, beautifully packaged, hand-coded and ready
+						to use.
+					</h1>
+					<p class="max-w-[270px] text-sm text-white/60">Fen Fen Chen is a designer and art director with over 15 years experience.</p>
+				</div>
+			</div>
+		</header>
+
+		<div class="relative z-30">
+			<main class="mx-auto max-w-[1440px] px-4 sm:px-10 2xl:max-w-[1680px]">
+				<CodeDev />
+				<ProductDesign />
+				<IdentityDesign />
+				<DigitalArt />
+			</main>
+		</div>
+
+		<!-- <section class="relative z-30 mx-auto hidden max-w-[1720px] sm:px-10">
+		<div class="overflow-hidden rounded-[32px] bg-[#2B2B2B] sm:rounded-[14px]">
+			<div class="mb-[160px] p-8 sm:p-12">
+				<h3 class="mb-7 max-w-xl text-xl leading-[1.35] tracking-[-0.015em] text-white 2xl:max-w-2xl 2xl:text-2xl 2xl:leading-[1.2]">
+					Jin Park is a designer and art director with over 15 years experience. She is currently based in San Francisco but often collaborates with clients around the world.
+				</h3>
+				<p class="max-w-[270px] text-sm text-white/60">Fen Fen Chen is a designer and art director with over 15 years experience.</p>
+			</div>
+
+			<div class="grid grid-cols-1 gap-6 px-6 pb-12 sm:grid-cols-3 sm:px-12">
+				<div class="space-y-6">
+					<CardAwards />
+					<CardContributions />
+					<CardCurrentlyReading />
+				</div>
+				<div class="space-y-6">
+					<CardGHBadges />
+					<CardOpenSource />
+					<CardWatercooler />
+				</div>
+				<div class="space-y-6">
+					<CardTestimonials />
+					<CardPhotography />
+				</div>
+			</div>
+		</div>
+	</section> -->
+	</div>
+
+	<script>
+		import { gsap } from 'gsap';
+		import { ScrollTrigger } from 'gsap/ScrollTrigger';
+		gsap.registerPlugin(ScrollTrigger);
+
+		// gsap.to('#home-splash', {
+		// 	scrollTrigger: {
+		// 		trigger: '#home-splash', // start the animation when "#home-splash" enters the viewport (once)
+
+		// 		start: 'top center',
+		// 		scrub: true,
+		// 	},
+		// 	scale: 0.5,
+		// 	translateY: 300,
+		// 	opacity: 0,
+		// });
+
+		gsap.to('#hero', {
+			scrollTrigger: {
+				trigger: '#header', // start the animation when trigger enters the viewport (once)
+				start: 'top top',
+				scrub: true,
+				pin: true,
+				pinSpacing: false,
+			},
+			// scale: 0.9,
+			// translateY: 300,
+			opacity: 0,
+			blurElement: 20,
+		});
+
+		gsap.to('#splash', {
+			scrollTrigger: {
+				trigger: '#splash', // start the animation when trigger enters the viewport (once)
+				start: 'top 15%',
+				scrub: true,
+				pin: true,
+			},
+			scale: 0.9,
+			// translateY: 400,
+			opacity: 0,
+		});
+	</script>
+</Layout>

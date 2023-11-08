@@ -1,0 +1,118 @@
+---
+import Layout from '@layouts/Layout.astro';
+import { Image } from 'astro:assets';
+
+import ImgSampleSlide01 from '@assets/sample-slide-01.jpg';
+import ImgSampleSlide02 from '@assets/sample-slide-02.jpg';
+import ImgSampleSlide03 from '@assets/sample-slide-03.jpg';
+import ImgSampleSlide04 from '@assets/sample-slide-04.jpg';
+import ImgSampleSlide05 from '@assets/sample-slide-05.jpg';
+
+// Sections
+import WorkShowcase from '@components/sections/home/WorkShowcase/index.astro';
+import ImageComparison from '@components/sections/home/ImageComparison/index.astro';
+import OSProjects from '@components/sections/home/OSProjects/index.astro';
+import CTA from '@components/sections/home/CTA.astro';
+---
+
+<Layout title="Welcome to Astro.">
+	<!-- Hero -->
+	<div class="gsap-pageWrapper">
+		<header id="header" class="mb-[200px]">
+			<div class="relative z-20 mx-auto max-w-[1440px] px-6 sm:px-10 2xl:max-w-[1680px]">
+				<div id="hero" class="pt-[110px]">
+					<h1 class="mb-7 max-w-3xl text-[22px] leading-[1.35] tracking-[-0.015em] text-white">
+						Jin is a New York based product designer, developer, and digital artist. He strives to unravel complex design challenges with meticulous and integrated strategies,
+						ensuring each solution is both polished and imbued with purpose.
+					</h1>
+					<p class="max-w-[270px] text-sm text-white/60">Over 15 years experience at the nexus of brand, product, and technology.</p>
+				</div>
+			</div>
+		</header>
+
+		<div id="hero-carousel">
+			<div class="carousel" style="--duration: 60s">
+				<ul class="carousel-track">
+					<li class="carousel-slide pr-0.5">
+						<Image src={ImgSampleSlide01} alt="" width="800" loading="eager" class="aspect-[3/4] w-[300px] object-cover sm:w-[500px]" />
+					</li>
+					<li class="carousel-slide pr-0.5">
+						<Image src={ImgSampleSlide02} alt="" width="800" loading="eager" class="aspect-[3/4] w-[300px] object-cover sm:w-[500px]" />
+					</li>
+					<li class="carousel-slide pr-0.5">
+						<Image src={ImgSampleSlide03} alt="" width="800" loading="eager" class="aspect-[3/4] w-[300px] object-cover sm:w-[500px]" />
+					</li>
+					<li class="carousel-slide pr-0.5">
+						<Image src={ImgSampleSlide04} alt="" width="800" loading="eager" class="aspect-[3/4] w-[300px] object-cover sm:w-[500px]" />
+					</li>
+					<li class="carousel-slide pr-0.5">
+						<Image src={ImgSampleSlide05} alt="" width="800" loading="eager" class="aspect-[3/4] w-[300px] object-cover sm:w-[500px]" />
+					</li>
+					<li class="carousel-slide pr-0.5">
+						<Image src={ImgSampleSlide01} alt="" width="800" loading="eager" class="aspect-[3/4] w-[300px] object-cover sm:w-[500px]" />
+					</li>
+					<li class="carousel-slide pr-0.5">
+						<Image src={ImgSampleSlide02} alt="" width="800" loading="eager" class="aspect-[3/4] w-[300px] object-cover sm:w-[500px]" />
+					</li>
+					<li class="carousel-slide pr-0.5">
+						<Image src={ImgSampleSlide03} alt="" width="800" loading="eager" class="aspect-[3/4] w-[300px] object-cover sm:w-[500px]" />
+					</li>
+					<li class="carousel-slide pr-0.5">
+						<Image src={ImgSampleSlide04} alt="" width="800" loading="eager" class="aspect-[3/4] w-[300px] object-cover sm:w-[500px]" />
+					</li>
+					<li class="carousel-slide pr-0.5">
+						<Image src={ImgSampleSlide05} alt="" width="800" loading="eager" class="aspect-[3/4] w-[300px] object-cover sm:w-[500px]" />
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	<div class="section-container relative z-30 mt-[-100px] sm:mt-[-300px]">
+		<main class="mx-auto max-w-[1440px] px-4 sm:px-10 2xl:max-w-[1680px]">
+			<WorkShowcase />
+			<ImageComparison />
+			<OSProjects />
+			<CTA />
+		</main>
+	</div>
+</Layout>
+
+<script>
+	import { gsap } from 'gsap';
+	import { ScrollTrigger } from 'gsap/ScrollTrigger';
+	gsap.registerPlugin(ScrollTrigger);
+
+	gsap.to('#hero', {
+		scrollTrigger: {
+			trigger: '#header', // start the animation when trigger enters the viewport (once)
+			start: 'top top',
+			scrub: true,
+			pin: true,
+			pinSpacing: false,
+		},
+		opacity: 0,
+		blurElement: 20,
+	});
+
+	gsap.to('#hero-carousel', {
+		scrollTrigger: {
+			trigger: '.gsap-pageWrapper', // start the animation when trigger enters the viewport (once)
+			start: 'top top',
+			scrub: true,
+		},
+		translateY: 200,
+	});
+
+	const container = document.querySelector('.section-container');
+	const sectionCards = document.querySelectorAll('.section-card');
+
+	container.addEventListener('mousemove', (e) => {
+		console.log(e.x);
+		sectionCards.forEach((sectionCard) => {
+			const rect = sectionCard.getBoundingClientRect();
+			sectionCard.style.setProperty('--x', `${e.x - rect.left}px`);
+			sectionCard.style.setProperty('--y', `${e.y - rect.top}px`);
+		});
+	});
+</script>

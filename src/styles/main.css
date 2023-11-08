@@ -1,0 +1,215 @@
+/* The integration's default injected base.css file */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Unscoped, delivered as-is to the browser. */
+:root {
+	--swiper-pagination-bullet-inactive-color: white !important;
+	--swiper-navigation-size: 22px !important;
+	--swiper-navigation-color: white !important;
+	--opacity-duration: 0.3s;
+}
+
+@font-face {
+	font-family: 'Saans';
+
+	src: url('/fonts/Saans/GX/SaansVFUprights.woff2') format('woff2');
+
+	font-weight: 1 999;
+}
+
+@font-face {
+	font-family: 'FontAwesome';
+
+	src: url('/fonts/FontAwesome/webfonts/fa-brands-400.woff2') format('woff2');
+}
+
+#coin {
+	position: relative;
+	margin: 0 auto;
+	width: 80px;
+	height: 80px;
+	transition: transform 1s ease-in;
+	transform-style: preserve-3d;
+}
+
+#coin.heads {
+	animation: flipCoin 2s ease-out infinite;
+}
+
+#coin div {
+	position: absolute;
+	backface-visibility: hidden;
+}
+
+.side-a {
+	z-index: 100;
+}
+
+.side-b {
+	transform: rotateY(-180deg);
+}
+
+@keyframes flipCoin {
+	from {
+		transform: rotateY(0);
+	}
+	to {
+		transform: rotateY(360deg);
+	}
+}
+
+.section-card {
+	@apply relative mb-20 overflow-hidden rounded-[14px]  bg-white/[0.06] p-[1px] backdrop-blur-2xl;
+	--x: 0px;
+	--y: 0px;
+}
+
+.section-card:before {
+	@apply pointer-events-none absolute inset-0 opacity-0 content-[''];
+	background: radial-gradient(circle at top var(--y) left var(--x), rgba(255 120 111 / 1) 0, rgba(255 120 111 / 0) 500px);
+	transition: opacity var(--opacity-duration);
+}
+
+.section-card:hover::before {
+	opacity: 1;
+}
+
+[x-cloak] {
+	display: none !important;
+}
+
+/* Carousel */
+@keyframes scroll {
+	0% {
+		transform: translateX(0);
+	}
+	100% {
+		transform: translateX(-50%);
+	}
+}
+
+@keyframes scroll-reverse {
+	0% {
+		transform: translateX(-50%);
+	}
+	100% {
+		transform: translateX(0);
+	}
+}
+
+@keyframes scroll-vertical {
+	0% {
+		transform: translateY(0);
+	}
+	100% {
+		transform: translateY(-50%);
+	}
+}
+
+@keyframes scroll-vertical-reverse {
+	0% {
+		transform: translateY(-50%);
+	}
+	100% {
+		transform: translateY(0%);
+	}
+}
+.carousel {
+	--duration: 120s;
+	display: flex;
+	overflow: hidden;
+	width: 100%;
+}
+.carousel-track {
+	display: flex;
+	align-items: center;
+	flex: none;
+	-webkit-backface-visibility: hidden; /* Safari */
+	backface-visibility: hidden;
+	animation: scroll var(--duration) linear infinite;
+}
+.carousel-slide {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex: none;
+}
+
+.carousel-vertical {
+	display: block;
+}
+.carousel-reverse .carousel-track {
+	animation: scroll-reverse var(--duration) linear infinite;
+}
+
+.carousel-vertical .carousel-track {
+	flex-direction: column;
+	animation: scroll-vertical var(--duration) linear infinite;
+}
+
+.carousel-vertical.carousel-reverse .carousel-track {
+	animation: scroll-vertical-reverse var(--duration) linear infinite;
+}
+
+.carousel-flex-height {
+	height: 100%;
+}
+.carousel-flex-height .carousel-track {
+	height: 100%;
+}
+.carousel-flex-height .carousel-slide {
+	height: 100%;
+}
+
+.card-technology {
+	background: #272e3c;
+	box-shadow:
+		0px 1px 2px 0px rgba(255, 255, 255, 0.4) inset,
+		0px 8px 8px 0px rgba(0, 0, 0, 0.15);
+}
+
+.swiper-cards {
+	overflow: visible;
+}
+
+/* AI Animation */
+@keyframes ai-dot-pulse {
+	0% {
+		opacity: 100;
+	}
+	50% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 100;
+	}
+}
+.aiChat-container {
+	@apply flex flex-col items-end justify-end space-y-[4px] leading-[0];
+}
+
+.aiChat-container .aiChat-msg {
+	@apply inline-block overflow-hidden rounded-lg bg-[color:var(--bg-color)] px-3 py-2 shadow-lg sm:rounded-xl sm:px-4 sm:py-2.5;
+}
+
+.aiChat-container .aiChat-loadingDots {
+	@apply hidden items-center gap-1;
+}
+.aiChat-container .aiChat-loadingDot {
+	@apply h-2 w-2 rounded-full bg-white opacity-0;
+	/* animation: ai-dot-pulse 1s linear var(--delay) infinite; */
+}
+
+.aiChat-container .aiChat-content {
+	@apply max-w-[320px] text-sm text-[color:var(--text-color)] sm:text-base sm:leading-[24px];
+}
+
+.markdown h2 {
+	@apply mb-6 max-w-xl text-2xl font-light tracking-[-0.015em] text-white sm:text-3xl;
+}
+
+.markdown p {
+	@apply text-base text-white/70 sm:text-lg;
+}

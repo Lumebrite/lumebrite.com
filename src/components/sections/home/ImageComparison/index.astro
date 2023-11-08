@@ -1,0 +1,209 @@
+---
+import { Image } from 'astro:assets';
+import { Icon } from 'astro-icon';
+
+// Components
+import Carousel from './components/Carousel.astro';
+
+// Images
+import ImgAbstract from './assets/sean-sinclair-0Y6BaIZeh0g-unsplash.jpg';
+---
+
+<section class="section-card">
+	<article class="relative z-20 grid grid-cols-1 rounded-[13px] bg-[#1f1d20]/80">
+		<div class="px-6 py-8 sm:px-9 sm:py-12 xl:px-12">
+			<h3 class="mb-6 max-w-xl text-2xl font-light tracking-[-0.015em] text-white sm:text-3xl">
+				Transparent, audited, <br /><span class="text-red-400">& open source</span>
+			</h3>
+			<p class="max-w-2xl text-base text-white/70 sm:text-lg">
+				Fingerprint provides a complete view of your users across web and mobile. The visitor identification API identifies up to 99.5% of returning visitors, while Smart Signals
+				provide actionable real-time intelligence about visitor intent.
+			</p>
+
+			<a href="/works" class="mt-10 inline-flex items-center rounded-full text-sm font-semibold text-white hover:text-white/80">
+				What makes us different <Icon name="mdi:chevron-right" class="mr-2 w-5 text-red-400" />
+			</a>
+		</div>
+
+		<div class="relative z-30 mt-24 lg:mt-32 xl:px-12">
+			<!-- Image comparison component -->
+			<div class="flex h-[400px] flex-none overflow-hidden rounded-b-none xl:rounded-3xl xl:rounded-b-none" x-data="imageCompare" x-ref="imageCompareContainer">
+				<!-- Before container -->
+				<div class="relative flex-none bg-red-200" style="width: 50%;" :style="'width: ' + width + 'px;'">
+					<div class="absolute top-0 z-20 flex w-full items-center justify-center overflow-hidden py-4">
+						<div class="whitespace-nowrap rounded-full bg-black px-4 py-1.5 text-sm font-semibold text-white">I turn this</div>
+					</div>
+
+					<img src="/images/image-comparison/before.jpg" class="h-full object-cover object-left" />
+					<div
+						class="absolute right-0 top-0 z-[100] flex h-full w-12 translate-x-[50%] items-center before:absolute before:left-[23px] before:block before:h-full before:w-[2px] before:bg-black before:content-['']"
+					>
+						<div class="absolute flex h-12 w-12 cursor-grab items-center justify-center rounded-full bg-black" @mousedown="slideReady" @touchstart="slideReady">
+							<div class="flex items-center gap-1">
+								<svg class="fill-current text-white" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 320 512"
+									><!--! Font Awesome Pro 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+									<path d="M47 239c-9.4 9.4-9.4 24.6 0 33.9L207 433c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9L97.9 256 241 113c9.4-9.4 9.4-24.6 0-33.9s-24.6-9.4-33.9 0L47 239z"
+									></path></svg
+								>
+								<svg class="fill-current text-white" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 320 512"
+									><!--! Font Awesome Pro 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+									<path d="M273 239c9.4 9.4 9.4 24.6 0 33.9L113 433c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l143-143L79 113c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0L273 239z"
+									></path></svg
+								>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- After container -->
+				<div class="overflow-hiden relative h-full flex-1 bg-red-200">
+					<div class="absolute top-0 z-20 flex w-full items-center justify-center overflow-hidden py-4">
+						<div class="whitespace-nowrap rounded-full bg-black px-4 py-1.5 text-sm font-semibold text-white">Into this</div>
+					</div>
+					<img src="/images/image-comparison/after.jpg" class="h-full object-cover object-right" />
+				</div>
+			</div>
+		</div>
+	</article>
+</section>
+
+<!-- <div class="right-0 top-0 px-6 sm:px-9 xl:absolute xl:px-12 xl:py-12">
+	<ul class="aiChat-container" style="--bg-color: #4482E8;">
+		<li>
+			<div class="aiChat-msg">
+				<div class="aiChat-loadingDots">
+					<div class="aiChat-loadingDot"></div>
+					<div class="aiChat-loadingDot"></div>
+					<div class="aiChat-loadingDot"></div>
+				</div>
+				<div class="aiChat-content" style="--text-color: rgba(255, 255, 255, 1);">Latest News – our partnership with Unititled UI. But this goes way further you'll see!</div>
+			</div>
+		</li>
+
+		<li>
+			<div class="aiChat-msg">
+				<div class="aiChat-loadingDots">
+					<div class="aiChat-loadingDot"></div>
+					<div class="aiChat-loadingDot"></div>
+					<div class="aiChat-loadingDot"></div>
+				</div>
+				<div class="aiChat-content" style="--text-color: rgba(255, 255, 255, 1);">Latest News – our partnership <br />with Unititled UI</div>
+			</div>
+		</li>
+		<li>
+			<div class="aiChat-msg">
+				<div class="aiChat-loadingDots">
+					<div class="aiChat-loadingDot"></div>
+					<div class="aiChat-loadingDot"></div>
+					<div class="aiChat-loadingDot"></div>
+				</div>
+				<div class="aiChat-content" style="--text-color: rgba(255, 255, 255, 1);">
+					<div class="relative aspect-[8/5] w-[190px] flex-none overflow-hidden rounded-lg border-white/80 shadow-lg">
+						<Image src={ImgAbstract} alt="" width="800" class="h-full w-full object-cover" />
+						<div class="absolute left-1/2 top-1/2 flex h-10 w-10 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-white shadow-xl">
+							<svg class="ml-0.5 w-5 text-black" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-5 w-5">
+								<path d="M6.3 2.841A1.5 1.5 0 004 4.11V15.89a1.5 1.5 0 002.3 1.269l9.344-5.89a1.5 1.5 0 000-2.538L6.3 2.84z"></path>
+							</svg>
+						</div>
+					</div>
+				</div>
+			</div>
+		</li>
+	</ul>
+</div> -->
+
+<script>
+	import { gsap } from 'gsap';
+	import { ScrollTrigger } from 'gsap/ScrollTrigger';
+	gsap.registerPlugin(ScrollTrigger);
+
+	// Add the timelines to a parent timeline.
+	// const ImageComparisonChatAnimation = gsap.timeline({ paused: true });
+
+	// let aiChatMsgs: NodeListOf<HTMLElement> | null = document.querySelectorAll('#image-comparison .aiChat-msg');
+
+	// const msgAnimation = gsap.timeline({
+	// 	onStart: () => {},
+	// });
+
+	// aiChatMsgs.forEach((msg, i) => {
+	// 	let aiChatMsg = aiChatMsgs[i];
+	// 	let aiChatMsgWidth = aiChatMsgs[i].offsetWidth;
+	// 	let aiChatMsgHeight = aiChatMsgs[i].offsetHeight;
+	// 	let aiChatContent = aiChatMsgs[i].querySelector('.aiChat-content');
+	// 	let aiChatLoadingDots = aiChatMsgs[i].querySelector('.aiChat-loadingDots');
+	// 	let aiChatLoadingDot = aiChatMsgs[i].querySelectorAll('.aiChat-loadingDot');
+
+	// 	function getRandomNumber() {
+	// 		// Generate a random number between 0 (inclusive) and 1 (exclusive)
+	// 		const randomNumber = Math.random();
+
+	// 		// Scale and shift the random number to be between 0.1 and 0.4
+	// 		const min = 0;
+	// 		const max = 3;
+	// 		const result = min + randomNumber * (max - min);
+
+	// 		return result;
+	// 	}
+
+	// 	gsap.set(aiChatMsg, {
+	// 		display: 'none',
+	// 	});
+	// 	gsap.set(aiChatContent, {
+	// 		display: 'none',
+	// 	});
+	// 	msgAnimation
+	// 		.set(aiChatMsg, {
+	// 			display: 'inline-block',
+	// 		})
+	// 		.set(aiChatLoadingDots, {
+	// 			display: 'flex',
+	// 		})
+	// 		.to(aiChatLoadingDot, {
+	// 			keyframes: [{ opacity: 1 }, { opacity: 0 }],
+	// 			duration: 0.4,
+	// 			stagger: 0.1,
+	// 			repeat: getRandomNumber(),
+	// 		})
+	// 		.set(aiChatMsg, {
+	// 			width: 64,
+	// 			height: 32,
+	// 		})
+	// 		.set(aiChatLoadingDot, {
+	// 			display: 'none',
+	// 		})
+	// 		.to(aiChatMsg, {
+	// 			width: aiChatMsgWidth + 1,
+	// 			height: aiChatMsgHeight + 1,
+	// 			duration: 0.2,
+	// 		})
+	// 		.set(aiChatContent, {
+	// 			display: 'block',
+	// 		})
+	// 		.to(aiChatContent, {
+	// 			opacity: 1,
+	// 			duration: 0.4,
+	// 		});
+	// });
+
+	// ImageComparisonChatAnimation.add(msgAnimation, '<');
+
+	ScrollTrigger.create({
+		trigger: '#image-comparison',
+		start: 'top center',
+		end: 'bottom center',
+		onEnter: () => {
+			ImageComparisonChatAnimation.play();
+			document.querySelector('#image-comparison .section-card').classList.add('is-active');
+		},
+		onLeave: () => {
+			document.querySelector('#image-comparison .section-card').classList.remove('is-active');
+		},
+		onEnterBack: () => {
+			document.querySelector('#image-comparison .section-card').classList.add('is-active');
+		},
+		onLeaveBack: () => {
+			document.querySelector('#image-comparison .section-card').classList.remove('is-active');
+		},
+	});
+</script>

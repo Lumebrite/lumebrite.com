@@ -1,0 +1,291 @@
+---
+import Layout from '@layouts/Layout.astro';
+import { Image } from 'astro:assets';
+
+// Images
+import ImgBackground from '@assets/backgrounds/adrien-olichon-gOdavfpH-3s-unsplash.jpg';
+
+// Sections
+import CardAwards from '@components/about/CardAwards.astro';
+import CardContributions from '@components/about/CardContributions.astro';
+import CardCurrentlyReading from '@components/about/CardCurrentlyReading.astro';
+import CardGHBadges from '@components/about/CardGHBadges.astro';
+import CardOpenSource from '@components/about/CardOpenSource.astro';
+import CardWatercooler from '@components/about/CardWatercooler.astro';
+import CardTestimonials from '@components/about/CardTestimonials.astro';
+import CardPhotography from '@components/about/CardPhotography.astro';
+---
+
+<Layout title="Welcome to Astro.">
+	<div class="absolute left-0 top-0 h-screen w-full">
+		<div class="relative h-screen w-full">
+			<Image src={ImgBackground} alt="" width="1600" class="h-full w-full object-cover opacity-40" />
+			<div class="absolute left-0 top-0 h-full w-full bg-gradient-to-b from-[#1F1D20]/0 to-[#1F1D20]"></div>
+		</div>
+	</div>
+
+	<div class="relative z-20">
+		<!-- Hero -->
+		<header id="header" class="mb-[200px]">
+			<div class="relative z-20 mx-auto max-w-[1440px] px-6 sm:px-10 2xl:max-w-[1680px]">
+				<div id="hero" class="pt-[110px]">
+					<h1 class="mb-7 max-w-3xl text-[22px] leading-[1.35] tracking-[-0.015em] text-white">
+						We help early-stage companies look the part by delivering beautiful identity designs, product concepts, and user experiences, beautifully packaged, hand-coded and ready
+						to use.
+					</h1>
+					<p class="max-w-[270px] text-sm text-white/60">Fen Fen Chen is a designer and art director with over 15 years experience.</p>
+				</div>
+			</div>
+		</header>
+
+		<div class="relative z-30">
+			<main class="mx-auto max-w-[1440px] px-4 sm:px-10 2xl:max-w-[1680px]">
+				<section class="section-card mb-7 pb-0 pt-8 sm:py-12">
+					<div class="px-6 sm:px-9 xl:px-12">
+						<h3 class="mb-6 max-w-xl text-2xl font-light tracking-[-0.015em] text-white sm:text-3xl">
+							Transparent, gaudited, <br /><span class="text-red-400">& open source</span>
+						</h3>
+						<p class="max-w-4xl text-base text-white/70 sm:text-lg">
+							Fingerprint provides a complete view of your users across web and mobile. The visitor identification API identifies up to 99.5% of returning visitors, while Smart
+							Signals provide actionable real-time intelligence about visitor intent.
+						</p>
+					</div>
+
+					<div class="mt-24 grid grid-cols-1 gap-6 px-6 pb-12 sm:grid-cols-3 sm:px-12 lg:mt-32">
+						<div class="space-y-6">
+							<CardAwards />
+							<CardContributions />
+							<CardCurrentlyReading />
+						</div>
+						<div class="space-y-6">
+							<CardGHBadges />
+							<CardOpenSource />
+							<CardWatercooler />
+						</div>
+						<div class="space-y-6">
+							<CardTestimonials />
+							<CardPhotography />
+						</div>
+					</div>
+				</section>
+
+				<section class="section-card mb-7 pb-0 pt-8 sm:py-12">
+					<div class="px-6 sm:px-9 xl:px-12">
+						<h3 class="mb-6 max-w-3xl text-2xl font-light tracking-[-0.015em] text-white sm:text-3xl">
+							Lumebrite is a designer and art director with over 15 years experience. She is currently based in San Francisco but often collaborates with clients around the world.
+						</h3>
+						<p class="max-w-2xl text-base text-white/70 sm:text-lg">
+							Fingerprint provides a complete view of your users across web and mobile. The visitor identification API identifies up to 99.5% of returning visitors, while Smart
+							Signals provide actionable real-time intelligence about visitor intent.
+						</p>
+					</div>
+
+					<div class="mt-24 px-6 pb-12 sm:grid-cols-3 sm:px-12 lg:mt-32">
+						<ul class="space-y-2">
+							<li x-data="{ open: false }">
+								<div @click="open = !open" class="flex cursor-pointer items-center justify-between rounded-xl bg-black px-4 py-4 hover:bg-black/60">
+									<div class="flex items-center gap-4">
+										<div class="h-5 w-5 rounded-full bg-indigo-500"></div>
+										 Castle intelligence <span class="text-white/40">2015 – Present</span>
+									</div>
+									<div class="text-white">
+										<svg
+											xmlns="http://www.w3.org/2000/svg"
+											width="24"
+											height="24"
+											viewBox="0 0 24 24"
+											fill="none"
+											stroke="currentColor"
+											stroke-width="2"
+											stroke-linecap="round"
+											stroke-linejoin="round"
+											class="lucide lucide-chevron-down"><path d="m6 9 6 6 6-6"></path></svg
+										>
+									</div>
+								</div>
+
+								<div x-show="!open" class="overflow-hidden">
+									<ul class="mb-10 ml-10 mt-6 max-w-4xl space-y-3">
+										<li
+											class="relative rounded-xl bg-white px-6 py-5 text-black before:absolute before:bottom-[calc(100%-20px)] before:right-full before:block before:h-[2000px] before:w-6 before:rounded-bl-xl before:border-b before:border-l before:border-slate-500 before:content-['']"
+										>
+											<h4 class="mb-5 font-semibold">Organization Details</h4>
+											<ul class="max-w-[600px] space-y-1 text-sm text-slate-500">
+												<li class="flex w-full items-center gap-4">
+													<div class="w-[150px] font-medium text-slate-700">Industry</div>
+													<div>Software Company</div>
+												</li>
+												<li class="flex w-full items-center gap-4">
+													<div class="w-[150px] font-medium text-slate-700">Employees</div>
+													<div>100+</div>
+												</li>
+												<li class="flex w-full items-center gap-4">
+													<div class="w-[150px] font-medium text-slate-700">Location</div>
+													<div>Auckland, New Zealand</div>
+												</li>
+											</ul>
+										</li>
+										<li
+											class="relative rounded-xl bg-white px-6 py-5 text-black before:absolute before:bottom-[calc(100%-20px)] before:right-full before:block before:h-[2000px] before:w-6 before:rounded-bl-xl before:border-b before:border-l before:border-zinc-600 before:content-['']"
+										>
+											<h4 class="mb-5 font-semibold">Senior Product Designer</h4>
+											<ul class="max-w-[600px] space-y-1 text-sm text-slate-500">
+												<li class="flex w-full items-center gap-4">
+													<div class="w-[150px] font-medium text-slate-700">Period</div>
+													<div>2015 – Present</div>
+												</li>
+												<li class="flex w-full items-center gap-4">
+													<div class="w-[150px] font-medium text-slate-700">Role disciplines</div>
+													<div>Design, development, design management</div>
+												</li>
+											</ul>
+											<div class="mt-6 bg-slate-50 px-6 py-4">
+												<h5 class="mb-5 text-sm font-medium">Responsibilities</h5>
+												<ol class="max-w-xl space-y-4 text-sm font-normal text-slate-600">
+													<li>
+														Collaborate with stakeholders to understand user needs and requirements. Product designers work with a variety of stakeholders, including engineers,
+														marketers, and business leaders, to understand the needs of users and develop products that meet those needs.
+													</li>
+													<li>
+														Collaborate with stakeholders to understand user needs and requirements. Product designers work with a variety of stakeholders, including engineers,
+														marketers, and business leaders, to understand the needs of users and develop products that meet those needs.
+													</li>
+													<li>
+														Collaborate with stakeholders to understand user needs and requirements. Product designers work with a variety of stakeholders, including engineers,
+														marketers, and business leaders, to understand the needs of users and develop products that meet those needs.
+													</li>
+												</ol>
+											</div>
+										</li>
+									</ul>
+								</div>
+							</li>
+							<li x-data="{ open: false }">
+								<div @click="open = !open" class="flex cursor-pointer items-center justify-between rounded-xl bg-black px-4 py-4 hover:bg-black/60">
+									<div class="flex items-center gap-4">
+										<div class="h-5 w-5 rounded-full bg-indigo-500"></div>
+										 Castle intelligence <span class="text-white/40">2015 – Present</span>
+									</div>
+									<div class="text-white">
+										<svg
+											xmlns="http://www.w3.org/2000/svg"
+											width="24"
+											height="24"
+											viewBox="0 0 24 24"
+											fill="none"
+											stroke="currentColor"
+											stroke-width="2"
+											stroke-linecap="round"
+											stroke-linejoin="round"
+											class="lucide lucide-chevron-down"><path d="m6 9 6 6 6-6"></path></svg
+										>
+									</div>
+								</div>
+
+								<div x-show="!open" class="overflow-hidden">
+									<ul class="mb-10 ml-10 mt-6 max-w-4xl space-y-3">
+										<li
+											class="relative rounded-xl bg-white px-6 py-5 text-black before:absolute before:bottom-[calc(100%-20px)] before:right-full before:block before:h-[2000px] before:w-6 before:rounded-bl-xl before:border-b before:border-l before:border-slate-500 before:content-['']"
+										>
+											<h4 class="mb-5 font-semibold">Organization Details</h4>
+											<ul class="max-w-[600px] space-y-1 text-sm text-slate-500">
+												<li class="flex w-full items-center gap-4">
+													<div class="w-[150px] font-medium text-slate-700">Industry</div>
+													<div>Software Company</div>
+												</li>
+												<li class="flex w-full items-center gap-4">
+													<div class="w-[150px] font-medium text-slate-700">Employees</div>
+													<div>100+</div>
+												</li>
+												<li class="flex w-full items-center gap-4">
+													<div class="w-[150px] font-medium text-slate-700">Location</div>
+													<div>Auckland, New Zealand</div>
+												</li>
+											</ul>
+										</li>
+										<li
+											class="relative rounded-xl bg-white px-6 py-5 text-black before:absolute before:bottom-[calc(100%-20px)] before:right-full before:block before:h-[2000px] before:w-6 before:rounded-bl-xl before:border-b before:border-l before:border-zinc-600 before:content-['']"
+										>
+											<h4 class="mb-5 font-semibold">Senior Product Designer</h4>
+											<ul class="max-w-[600px] space-y-1 text-sm text-slate-500">
+												<li class="flex w-full items-center gap-4">
+													<div class="w-[150px] font-medium text-slate-700">Period</div>
+													<div>2015 – Present</div>
+												</li>
+												<li class="flex w-full items-center gap-4">
+													<div class="w-[150px] font-medium text-slate-700">Role disciplines</div>
+													<div>Design, development, design management</div>
+												</li>
+											</ul>
+											<div class="mt-6 bg-slate-50 px-6 py-4">
+												<h5 class="mb-5 text-sm font-medium">Responsibilities</h5>
+												<ol class="max-w-xl space-y-4 text-sm font-normal text-slate-600">
+													<li>
+														Collaborate with stakeholders to understand user needs and requirements. Product designers work with a variety of stakeholders, including engineers,
+														marketers, and business leaders, to understand the needs of users and develop products that meet those needs.
+													</li>
+													<li>
+														Collaborate with stakeholders to understand user needs and requirements. Product designers work with a variety of stakeholders, including engineers,
+														marketers, and business leaders, to understand the needs of users and develop products that meet those needs.
+													</li>
+													<li>
+														Collaborate with stakeholders to understand user needs and requirements. Product designers work with a variety of stakeholders, including engineers,
+														marketers, and business leaders, to understand the needs of users and develop products that meet those needs.
+													</li>
+												</ol>
+											</div>
+										</li>
+									</ul>
+								</div>
+							</li>
+						</ul>
+					</div>
+				</section>
+			</main>
+		</div>
+
+		<script>
+			import { gsap } from 'gsap';
+			import { ScrollTrigger } from 'gsap/ScrollTrigger';
+			gsap.registerPlugin(ScrollTrigger);
+
+			// gsap.to('#home-splash', {
+			// 	scrollTrigger: {
+			// 		trigger: '#home-splash', // start the animation when "#home-splash" enters the viewport (once)
+
+			// 		start: 'top center',
+			// 		scrub: true,
+			// 	},
+			// 	scale: 0.5,
+			// 	translateY: 300,
+			// 	opacity: 0,
+			// });
+
+			gsap.to('#hero', {
+				scrollTrigger: {
+					trigger: '#header', // start the animation when trigger enters the viewport (once)
+					start: 'top top',
+					scrub: true,
+					pin: true,
+					pinSpacing: false,
+				},
+				// scale: 0.9,
+				// translateY: 300,
+				opacity: 0,
+				blurElement: 20,
+			});
+
+			gsap.to('#splash', {
+				scrollTrigger: {
+					trigger: '#splash', // start the animation when trigger enters the viewport (once)
+					start: 'top 15%',
+					scrub: true,
+					pin: true,
+				},
+				scale: 0.9,
+				// translateY: 400,
+				opacity: 0,
+			});
+		</script>
+	</div>
+</Layout>
